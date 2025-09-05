@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Petr Langer – Portfolio</title>
+<style>
+  :root { --radius: 1rem; }
+
+  * { box-sizing: border-box; margin:0; padding:0; font-family: 'Segoe UI', sans-serif; }
+  html, body { height: 100%; scroll-behavior: smooth; }
+  body {
+    background: linear-gradient(270deg, #1e0033, #ff3399, #6633cc, #1e0033);
+    background-size: 400% 400%;
+    animation: gradientShift 25s ease infinite;
+    color: #fff;
+    line-height: 1.6;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding:1rem 0;
+    text-align:center;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  header.hide { transform: translateY(-100%); opacity: 0; }
+
+  nav { display:flex; justify-content:center; gap:2rem; margin-bottom:2rem; }
+  nav a { text-decoration:none; color:#fff; font-weight:600; padding:.5rem 1rem; border-radius:.6rem; transition:0.3s; }
+  nav a:hover { background: rgba(255,255,255,0.08); }
+
+  .container { width: min(1100px, 90%); margin:auto; position:relative; z-index:1; }
+
+  .glass {
+    position: relative;
+    background: rgba(0,0,0,0.7); 
+    backdrop-filter: blur(12px) saturate(180%);
+    border-radius: var(--radius);
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  h1, h2, h3, p {
+    text-shadow: 0 0 8px rgba(0,0,0,0.8);
+    color: #fff;
+    margin-bottom: 1rem;
+  }
+
+  h1 { 
+    font-size: clamp(2rem,5vw,3rem); 
+    background: linear-gradient(90deg,#ff99ff,#ff3399,#ff66cc); 
+    -webkit-background-clip:text; 
+    color:transparent; 
+    text-align: center;
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+  }
+
+  h2 { 
+    font-size: clamp(1.5rem,4vw,2rem); 
+    color:#fff; 
+    margin-bottom:0.6rem; 
+    text-align: center;
+  }
+
+  h3 { color:#ff66ff; margin-bottom:0.5rem; }
+
+  p { margin-bottom:1rem; color:#ddd; }
+
+  .info-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
+  .card { 
+    position: relative;
+    background: rgba(0,0,0,0.6); 
+    border:1px solid rgba(255,255,255,0.2); 
+    border-radius:var(--radius); 
+    padding:2rem; 
+    box-shadow:0 10px 25px rgba(0,0,0,0.5); 
+    transition: transform 0.3s; 
+    text-align: left;
+  }
+  .card:hover { transform: translateY(-5px) rotateX(1deg) rotateY(1deg); }
+
+  .btn { display:inline-block; padding:.8rem 1.4rem; border-radius:999px; font-weight:600; text-decoration:none; position:relative; overflow:hidden; transition:.3s; color:white; background: linear-gradient(90deg,#ff66ff,#ff3399); }
+  .btn:hover { transform: scale(1.05); }
+
+  section { padding: 6vh 0; }
+
+  [data-animate] { opacity:0; transform: translateY(20px); transition: all 0.8s cubic-bezier(.22,1,.36,1); }
+  .a-in { opacity:1 !important; transform:none !important; }
+
+  @media(max-width:640px) { 
+    .info-grid { grid-template-columns:1fr; } 
+    nav { flex-direction:column; gap:1rem; } 
+  }
+
+  /* Styl pro notifikaci */
+  #copyMessage { transition: opacity 0.5s; }
+
+  /* Styl pro čtvercovou fotku */
+  #about img {
+    width:280px;
+    height:280px;
+    border-radius:0; /* čtverec */
+    border:3px solid rgba(255,255,255,0.4);
+    margin-bottom:1rem;
+    object-fit:cover;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+  }
+
+  @media(max-width:640px) {
+    #about img {
+      width:100px;
+      height:100px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <a href="#about">O mně</a>
+      <a href="#skills">Co umím</a>
+      <a href="#education">Kde studuji</a>
+      <a href="#contact">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<section id="about">
+  <div class="container glass" data-animate>
+    <div style="display:flex; flex-direction:column; align-items:center;">
+      <!-- Čtvercová fotka -->
+      <img src="C:\Users\petri\Downloads\petr_langer_imresizer.jpg" alt="Petr Langer">
+      <!-- Jméno -->
+      <h1>Petr Langer</h1>
+    </div>
+    <h2>O mně</h2>
+    <p>Jsem student a baví mě technologie, programování a umělá inteligence. Rád pracuji s AI, ale stejně tak si užívám sociální prostředí – od deeptalků po kluby plné lidí a skvělé atmosféry. Mám rád humor, jsem loyal a myslím si, že jsem chill borec.</p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <h2 data-animate>Co umím</h2>
+    <div class="info-grid">
+      <div class="card" data-animate>
+        <h3>Programování s AI</h3>
+        <p>Díky nástrojům jako ChatGPT, DeepSeek a dalším AI technologiím jsem se naučil s AI vytvářet skripty a programy v Pythonu, automatizační kódy i složitější věci jako reverse shell s množstvím funkcí (livestream plochy, file transfering a tak dále). I když mi AI pomáhá jako silný nástroj, dokážu si kód také sám trochu poupravit a rozumím základním principům.</p>
+      </div>
+      <div class="card" data-animate>
+        <h3>Kybernetická bezpečnost</h3>
+        <p>Fascinuje mě oblast <b>cybersecurity</b> od ochrany sítí až po ne/etické hackování a zabezpečení systémů.</p>
+      </div>
+      <div class="card" data-animate>
+        <h3>Automatizace</h3>
+        <p>Vytvářím automatizační skripty a programy pro efektivnější workflow. AI je pro mě nástrojem, který zrychluje a zefektivňuje procesy, ale dokážu si vše přizpůsobit ručně podle potřeby.</p>
+      </div>
+      <div class="card" data-animate>
+        <h3>Správa zařízení</h3>
+        <p>Rád nastavuji WiFi sítě, NVR, počítače a další zařízení, aby fungovaly spolehlivě a efektivně. Baví mě optimalizovat jejich konfigurace a řešit technické problémy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="container glass" data-animate>
+    <h2>Kde studuji</h2>
+    <p>Studuji na <strong>Střední škole technické a dopravní Gustava Habrmana</strong> v České Třebové, zaměřuji se na technické obory a programování.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container glass" data-animate>
+    <h2>Kontakt</h2>
+    <p>Kdybys potřeboval/a pomoct s čímkoliv ohledně počítačů, nebo měl/a zájem o spolupráci, klidně mi napiš na e-mail 😉: 
+      <strong id="emailText" style="cursor:pointer;">petriklanger54@gmail.com</strong>
+    </p>
+    <a href="#" id="copyEmailBtn" class="btn">Zkopírovat e-mail</a>
+    <p id="copyMessage" style="color:#00ff00; margin-top:0.5rem; opacity:0;">E-mail zkopírován do schránky!</p>
+  </div>
+</section>
+
+<footer style="text-align:center; padding:2rem 0; color:#ddd;">
+  © <span id="year"></span> Petr Langer – Portfolio
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Reveal animation
+  const reveal = () => {
+    const items = document.querySelectorAll('[data-animate]');
+    const obs = new IntersectionObserver((entries, o) => {
+      for (const e of entries) {
+        if(e.isIntersecting){
+          e.target.classList.add('a-in');
+          o.unobserve(e.target);
+        }
+      }
+    }, { threshold:0.1 });
+    items.forEach(el => obs.observe(el));
+  }
+  reveal();
+
+  // Hide/show header on scroll
+  let lastScroll = 0;
+  const header = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    if (currentScroll > lastScroll && currentScroll > 50) {
+      header.classList.add('hide'); 
+    } else {
+      header.classList.remove('hide'); 
+    }
+    lastScroll = currentScroll;
+  });
+
+  // Kopírování e-mailu do schránky s animací
+  const emailText = document.getElementById('emailText');
+  const emailBtn = document.getElementById('copyEmailBtn');
+  const copyMessage = document.getElementById('copyMessage');
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText(emailText.textContent).then(() => {
+      copyMessage.style.opacity = '1';
+      setTimeout(() => copyMessage.style.opacity = '0', 2000);
+    }).catch(() => {
+      alert('Nepodařilo se zkopírovat e-mail.');
+    });
+  };
+
+  emailBtn.addEventListener('click', e => { e.preventDefault(); copyEmail(); });
+  emailText.addEventListener('click', copyEmail);
+</script>
+
+</body>
+</html>
